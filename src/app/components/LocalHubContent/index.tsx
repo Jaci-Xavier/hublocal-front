@@ -16,6 +16,9 @@ export function LocalHubContent() {
                     $textAlign="center"
                     $width="50%"
                     $lineHeight="3.5rem"
+                    $responsiveFontSize="2rem"
+                    $responsiveFontWeight="700"
+                    $responsiveLineHeight="2rem"
                 >Junte-se a vários clientes satisfeitos.
                 </Text>
 
@@ -26,6 +29,8 @@ export function LocalHubContent() {
                     $textAlign="center"
                     $width="50%"
                     $lineHeight="1.5rem"
+                    $responsiveFontSize="1rem"
+                    $responsiveFontWeight="400"
                 >Cliente HubLocal ganha mais relevância, autoridade e visibilidade. Mais de 7.000 marcas confiam na nossa plataforma. Seja uma delas!
                 </Text>
             </Content.TextContainer>

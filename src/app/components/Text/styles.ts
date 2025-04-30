@@ -8,6 +8,9 @@ interface TextProps {
     children: React.ReactNode;
     $textAlign?: string;
     $lineHeight?: string;
+    $responsiveFontSize?: string;
+    $responsiveFontWeight?: string | number;
+    $responsiveLineHeight?: string;
 }
 
 export const Text = styled.p<TextProps>`
@@ -17,4 +20,13 @@ export const Text = styled.p<TextProps>`
     width: ${({ $width }) => $width || 'auto'};
     text-align: ${({ $textAlign }) => $textAlign || 'left'};
     line-height: ${({ $lineHeight }) => $lineHeight || 'normal'};
+
+    @media (max-width: 1366px) {
+        font-size: ${({ $responsiveFontSize, $fontSize }) =>
+        $responsiveFontSize || $fontSize || "1rem"};
+        font-weight: ${({ $responsiveFontWeight, $fontWeight }) =>
+        $responsiveFontWeight || $fontWeight || "normal"};
+        line-height: ${({ $responsiveLineHeight, $lineHeight }) =>
+        $responsiveLineHeight || $lineHeight || "normal"};
+    }
 `;

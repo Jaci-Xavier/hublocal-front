@@ -12,6 +12,10 @@ export const InputContainer = styled.div<InputProps>`
   padding-inline: ${({ $padding }: InputProps) => $padding || '0'};
   font-size: 16px;
   font-weight: 500;
+
+  @media (max-width: 1366px) {
+    padding-inline: 8.8rem;
+  }
 `;
 
 export const Input = styled.input`

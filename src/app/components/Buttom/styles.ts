@@ -12,6 +12,10 @@ export const ButtonContainer = styled.div<ButtonProps>`
     font-size: 16px;
     font-weight: 500;
     padding-inline: ${({ padding }) => padding || '0'};
+
+    @media (max-width: 1367px) {
+    padding-inline: 8.8rem;
+  }
 `;
 
 interface StyledButtonProps {

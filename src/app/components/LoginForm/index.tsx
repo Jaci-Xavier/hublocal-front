@@ -68,7 +68,11 @@ export function LoginForm() {
         Entrar
       </Button>
 
-      <Button color='#00CC99' padding={padding} onClick={() => redirect('/register')}>
+      <Button 
+        color='#00CC99' 
+        padding={padding} 
+        onClick={() => redirect('/register')}
+      >
         Registrar
       </Button>
       <Snackbar

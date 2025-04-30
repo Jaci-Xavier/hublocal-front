@@ -13,7 +13,7 @@ export const Container = styled.div`
     background-color: #0485FF;
     position: relative;
 
-    @media (max-width: 1366px) {
+    @media (max-width: 1367px) {
     height: 100vh;
   }
   `;
@@ -22,7 +22,7 @@ export const ImageContainer = styled.div`
     width: 100%;
     margin-bottom: calc(23vh);
 
-    @media (max-width: 1366px) {
+    @media (max-width: 1367px) {
     margin-bottom: calc(20vh);
     width: 100%;    
     }

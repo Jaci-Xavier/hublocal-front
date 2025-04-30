@@ -21,7 +21,7 @@ export const Text = styled.p<TextProps>`
     text-align: ${({ $textAlign }) => $textAlign || 'left'};
     line-height: ${({ $lineHeight }) => $lineHeight || 'normal'};
 
-    @media (max-width: 1366px) {
+    @media (max-width: 1367px) {
         font-size: ${({ $responsiveFontSize, $fontSize }) =>
         $responsiveFontSize || $fontSize || "1rem"};
         font-weight: ${({ $responsiveFontWeight, $fontWeight }) =>

@@ -13,7 +13,7 @@ export const InputContainer = styled.div<InputProps>`
   font-size: 16px;
   font-weight: 500;
 
-  @media (max-width: 1366px) {
+  @media (max-width: 1367px) {
     padding-inline: 8.8rem;
   }
 `;

@@ -34,21 +34,3 @@ export const TextContainer = styled.div`
     position: absolute;
     bottom: 0;
 `;
-
-export const Title = styled.h1`
-    font-size: 3rem;
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-    color: #ffffff;
-    text-align: center;
-    width: 50%;
-`;
-
-export const Text = styled.p`
-    font-size: 1.2rem;
-    font-weight: 400;
-    font-family: 'Poppins', sans-serif;    
-    color: #ffffff;
-    text-align: center;
-    width: 50%;
-`;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface InputProps {
-  padding?: string;
+  $padding?: string;
 }
 
 export const InputContainer = styled.div<InputProps>`
@@ -9,7 +9,7 @@ export const InputContainer = styled.div<InputProps>`
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  padding-inline: ${({ padding }: InputProps) => padding || '0'};
+  padding-inline: ${({ $padding }: InputProps) => $padding || '0'};
   font-size: 16px;
   font-weight: 500;
 `;

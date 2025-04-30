@@ -1,28 +1,37 @@
 'use client';
+import { useEffect, useState } from "react";
 import EmptyList from "../components/EmptyList";
 import Layout from "../components/Layout";
 import { Text } from "../components/Text";
-
-
+import { getEmpresas } from "./actions";
 
 export default function MinhasEmpresas() {
-  const text = `Nenhuma empresa
-cadastrada!`;
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [isEmpty, setIsEmpty] = useState(false);
+  const [children, setChildren] = useState({
+    text: 'Nenhuma empresa cadastrada!',
+    buttonText: 'Adicionar empresa',
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const response = await getEmpresas();
+      setData(response.data);
+      setLoading(false);
+
+      if (response.status === 204) {
+        setIsEmpty(true);
+      }
+    }
+    fetchData();
+  }
+  , []);
 
   return (
     <Layout>
-      <EmptyList>
-        <Text
-          $fontSize="4.3rem"
-          $fontWeight="700"
-          $color="#000000"
-          $width="700px"
-          $textAlign="center"
-          $lineHeight="4.6rem"
-        >
-          {text}
-        </Text>
-      </EmptyList>
+      { isEmpty == true && <EmptyList>{children}</EmptyList> }
     </Layout>
   );
 }

@@ -25,7 +25,7 @@ export const Button = styled.button<StyledButtonProps>`
     height: 3.75rem;
     width: 100%;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: 700;
     transition: background-color 0.3s ease;
     cursor: pointer;

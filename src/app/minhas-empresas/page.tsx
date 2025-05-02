@@ -22,7 +22,7 @@ const columns = [
 
 export default function MinhasEmpresas() {
   const [data, setData] = useState<Empresa[]>([]);
-  const [isEmpty, setIsEmpty] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);

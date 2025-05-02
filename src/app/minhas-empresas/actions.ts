@@ -1,46 +1,77 @@
 'use server';
 import axios from 'axios';
-import { cookies } from 'next/headers';
+import { getToken } from '../utils/getToken';
 
 export async function getEmpresas() {
-  const cookieStore = cookies();
-  const token = (await cookieStore).get('token')?.value;
-
-  const response = { status: 204, data: [] };
-
-
-  // const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/empresa`, {
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     'Accept': 'application/json',
-  //     'Acesss-Control-Allow-Origin': '*',
-  //     'Authorization': `Bearer ${token}`,
-  //   },
-  // });
-
-  // return response.data;
-
-  return response; 
-
+  const token = await getToken();
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/empresa`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Acesss-Control-Allow-Origin': '*',
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+  
+  return response.data;
 }
 
-// const resp2 = [
-//   {
-//     "id": "cm9ysyrn80001ihw4adv7zqcg",
-//     "nome": "Empresa Exemplo",
-//     "cnpj": "12345678000190",
-//     "website": "https://www.empresaexemplo.com",
-//     "createdAt": "2025-04-26T22:39:12.351Z",
-//     "updatedAt": "2025-04-26T22:39:12.351Z",
-//     "usuarioId": "cm9xkl1bz0000ihesdm8yqpy3"
-//   },
-//   {
-//     "id": "cm9yt0xg40001ihb40buootle",
-//     "nome": "Empresa Exemplo 2",
-//     "cnpj": "12345678000199",
-//     "website": "https://www.empresaexemplo2.com.br",
-//     "createdAt": "2025-04-26T22:40:53.196Z",
-//     "updatedAt": "2025-04-26T22:40:53.196Z",
-//     "usuarioId": "cm9xkl1bz0000ihesdm8yqpy3"
-//   }
-// ]
+export async function createEmpresa(payload: any) {
+  const token = await getToken();
+  const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/empresa`, payload, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Acesss-Control-Allow-Origin': '*',
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+
+  if (response.status === 201) {
+    return { message: 'Empresa criada com sucesso!', status: response.status, data: response.data };
+  } else {
+    return { message: 'Erro ao criar empresa!', status: response.status };
+  }
+}
+
+export async function deleteEmpresa(id: string) {
+  const token = await getToken();
+  const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/empresa/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Acesss-Control-Allow-Origin': '*',
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+
+  if (response.status === 200) {
+    return { message: 'Empresa deletada com sucesso!', status: response.status };
+  } else {
+    return { message: 'Erro ao deletar empresa!', status: response.status };
+  }
+}
+
+export async function updateEmpresa(payload: any) {
+  const token = await getToken();
+  const formatPayload = {
+    nome: payload.nome,
+    website: payload.website,
+    cnpj: payload.cnpj,
+  };
+  const empresaId = payload.id;
+  const response = await axios.patch(`${process.env.NEXT_PUBLIC_API_URL}/empresa/${empresaId}`, formatPayload, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Acesss-Control-Allow-Origin': '*',
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+
+  if (response.status === 200) {
+    return { status: response.status, data: response.data };
+  } else {
+    return { status: response.status, data: response.data };
+  }
+}

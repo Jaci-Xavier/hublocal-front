@@ -27,8 +27,13 @@ export const Input = styled.input`
   font-weight: 500;
   transition: border-color 0.3s ease;
   padding-left: 4px;
+
   &:focus {
     border-color: #0385FD;
     outline: none;
+  }
+
+  @media (max-width: 1367px) {
+    height: 3.2rem;
   }
 `;

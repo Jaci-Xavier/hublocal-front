@@ -7,6 +7,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import perfil from '../../assets/pefil.png';
+import { redirect } from 'next/navigation';
+import { logoutUser } from '@/app/(auth)/actions';
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -44,9 +46,10 @@ export default function AvatarMenu() {
     setAnchorEl(null);
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     handleClose();
-    console.log('Deslogado');
+    logoutUser();
+    redirect('/');
   };
 
   return (

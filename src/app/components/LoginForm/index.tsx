@@ -8,6 +8,7 @@ import { loginUser } from '@/app/(auth)/actions';
 import Snackbar from '@mui/material/Snackbar';
 import { Alert } from '@mui/material';
 import { redirect } from 'next/navigation';
+import useToken from '@/providers/useToken';
 
 
 export function LoginForm() {
@@ -20,6 +21,8 @@ export function LoginForm() {
     message: '',
     severity: ''
   });
+  const {setToken } = useToken();
+
   const padding = '17rem';
 
   const handleSubmit = async () => {
@@ -30,7 +33,8 @@ export function LoginForm() {
 
       const result = await loginUser(payload);
 
-      if (result) {
+      if (result != '') {
+        setToken(result);
         redirect('/minhas-empresas');
       } else {
         setFailedLogin({ ...failedLogin, open: true, message: 'Falha no Login', severity: 'error' });
@@ -63,6 +67,7 @@ export function LoginForm() {
       <Button
         color='#0385FD'
         padding={padding}
+        widthContainer='100%'
         onClick={handleSubmit}
       >
         Entrar

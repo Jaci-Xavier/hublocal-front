@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 interface ButtonProps {
     padding?: string;
+    width?: string;
 }
 
 export const ButtonContainer = styled.div<ButtonProps>`
     display: flex;
     flex-direction: column;
     gap: 8px;
-    width: 100%;
+    width: ${({ width }) => width || '100%'};
     font-size: 16px;
     font-weight: 500;
     padding-inline: ${({ padding }) => padding || '0'};
@@ -33,4 +34,8 @@ export const Button = styled.button<StyledButtonProps>`
     font-weight: 700;
     transition: background-color 0.3s ease;
     cursor: pointer;
+
+    @media (max-width: 1367px) {
+    height: 3.2rem;
+  }
 `;

@@ -14,5 +14,9 @@ export const HeaderText = styled.h1`
     font-size: 1.8rem;
     font-weight: 700;
     color: #000000;
+
+    @media (max-width: 1367px) {
+        font-size: 1.6rem;
+  }
 `;
 

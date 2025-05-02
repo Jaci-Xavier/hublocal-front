@@ -8,7 +8,7 @@ export function Header() {
   return (
     <H.HeaderContainer>
         <Div
-            width="22vw"
+            width="auto"
             height="8vh"
             backgroundColor="#ffffff"
             flexDirection="row"
@@ -21,7 +21,7 @@ export function Header() {
             <H.HeaderText>Minhas Empresas</H.HeaderText>
         </Div>
         <Div
-            width="13vw"
+            width="auto"
             height="8vh"
             backgroundColor="#EAEAEA"
             flexDirection="row"

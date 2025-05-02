@@ -20,5 +20,11 @@ export async function loginUser(payload: any) {
     path: '/',
   });
 
-  return true;
+  return token;
 }
+
+export async function logoutUser() {
+  const cookieStore = await cookies();
+  cookieStore.delete('token');
+  return;
+};

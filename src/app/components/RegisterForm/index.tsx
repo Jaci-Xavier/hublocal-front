@@ -38,7 +38,6 @@ export function RegisterForm() {
       const result = await registerUser(payload);
 
       if (result.status === 201) {
-        console.log(result.status, 'entrou no 201');
         setState({ ...state, open: true, message: result.message, severity: 'success' });
         setTimeout(() => {
             redirect('/');

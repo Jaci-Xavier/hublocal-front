@@ -11,6 +11,9 @@ interface Props extends Omit<DivProps, '$width' | '$height' | '$backgroundColor'
   padding?: string;
   children: ReactNode;
   gap?: string;
+  marginBottom?: string;
+  marginTop?: string;
+  onClick?: () => void;
 }
 
 export function Div({
@@ -23,6 +26,9 @@ export function Div({
   padding,
   children,
   gap,
+  marginBottom,
+  marginTop,
+  onClick,
   ...rest
 }: Props) {
   return (
@@ -35,6 +41,9 @@ export function Div({
       $alignItems={alignItems}
       $padding={padding}
       $gap={gap}
+      $marginBottom={marginBottom}
+      $marginTop={marginTop}
+      onClick={onClick}
       {...rest}
     >
       {children}

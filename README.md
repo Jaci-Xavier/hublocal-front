@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Frontend de Gestão de Empresas e Locais
 
-First, run the development server:
+Este é o frontend da aplicação de gestão de empresas e locais, desenvolvido com **Next.js**. A aplicação permite que usuários façam login e realizem o cadastro e gerenciamento de empresas e seus respectivos endereços. A interface é integrada com a API protegida por JWT.
+
+## Tecnologias Usadas
+
+- **Next.js**: Framework React para construção de aplicações web modernas.
+- **React**: Biblioteca para construção de interfaces de usuário.
+- **Material UI (MUI)**: Biblioteca de componentes visuais responsivos.
+- **Styled Components**: Estilização de componentes com CSS-in-JS.
+- **Zustand**: Gerenciamento de estado leve e reativo.
+- **Axios**: Cliente HTTP para comunicação com a API.
+- **React Input Mask**: Máscaras para campos de formulário.
+- **TypeScript**: Tipagem estática para JavaScript.
+
+## Funcionalidades
+
+- **Autenticação com JWT**: Login e persistência de sessão via token.
+- **Gestão de Empresas**: Criar, visualizar, atualizar e excluir empresas.
+- **Gestão de Locais**: Criar, visualizar, atualizar e excluir endereços vinculados às empresas.
+- **Interface Responsiva**: Layout adaptado para diversos dispositivos.
+
+## Pré-requisitos
+
+Antes de começar, verifique se você tem os seguintes requisitos instalados:
+
+- **Node.js** (v20 ou superior)
+- **npm** (ou **yarn**) como gerenciador de pacotes
+
+## Instalação
+
+### Passo 1: Clone o repositório
+
+```bash
+git clone git@github.com:Jaci-Xavier/hublocal-front.git
+```
+
+### Passo 2: Instale as dependências
+
+```bash
+cd hublocal-front
+npm install
+```
+
+### Passo 3: Configure as variáveis de ambiente
+
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+
+```env
+NEXT_PUBLIC_API_URL="url_da_api"
+```
+
+(Substitua a URL pela URL da sua API, se necessário)
+
+### Passo 4: Inicie o projeto
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O frontend estará disponível em: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura da Aplicação
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Páginas**: Login, Dashboard, Empresas, Locais
+- **Componentes**: Campos de entrada, layout, tabelas, modais
+- **Gerenciamento de Estado**: Zustand
+- **Estilização**: MUI + Styled Components
 
-## Learn More
+## Integração com a API
 
-To learn more about Next.js, take a look at the following resources:
+A aplicação consome a [API NestJS](https://github.com/Jaci-Xavier/hublocal-api), utilizando JWT para autenticação. O token é armazenado localmente e enviado nos headers das requisições protegidas.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts Disponíveis
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev`: Inicia a aplicação em modo de desenvolvimento
+- `npm run build`: Gera a versão de produção
+- `npm run start`: Inicia a versão de produção
+- `npm run lint`: Executa o linter do projeto

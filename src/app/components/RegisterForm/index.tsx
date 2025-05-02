@@ -46,7 +46,8 @@ export function RegisterForm() {
         setState({ ...state, open: true, message: result.message, severity: 'error' });
       }
 
-    } catch (error) {
+    } catch (_error) {
+      console.error(_error);
       setState({ ...state, open: true, message: 'Erro ao registrar usuário', severity: 'error' });
     }
   };    

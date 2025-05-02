@@ -99,7 +99,6 @@ export default function MinhasEmpresas() {
         <CustomPaginationActionsTable 
           data={data} 
           columns={columns} 
-          route={'empresa'} 
           itemType="empresa"
           onClick={handleOpenModal}
           onEdit={(empresa: Empresa) => {

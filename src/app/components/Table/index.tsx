@@ -16,21 +16,19 @@ import { deleteEmpresa } from '@/app/minhas-empresas/actions';
 import { deleteLocal } from '@/app/meus-locais/[id_empresa]/actions';
 import DeleteConfirmationModal from '../DeleteConfirmationModal';
 import { redirect } from 'next/navigation';
-import { Div } from '../Div';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 interface StickyHeadTableProps {
   data: any[];
   columns: any[];
-  route: string;
   onClick: () => void;
   onEdit: (empresa: any) => void;
   itemType: 'empresa' | 'local'; 
 }
 
 
-export default function StickyHeadTable({ data, columns, route, onClick, onEdit, itemType }: StickyHeadTableProps) {
+export default function StickyHeadTable({ data, columns, onClick, onEdit, itemType }: StickyHeadTableProps) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [dataValues, setDataValues] = React.useState(data);

@@ -134,7 +134,6 @@ export default function MeusLocais() {
         <CustomPaginationActionsTable 
           data={data} 
           columns={columns} 
-          route={'local'} 
           itemType="local"
           onClick={handleOpenModal}
           onEdit={(local: Local) => {
